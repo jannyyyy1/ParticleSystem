@@ -1,18 +1,21 @@
-let ParticleSystem = function(position) {
+class ParticleSystem {
+constructor(position){
     this.origin = position.copy();
     this.particles = [];
-  };
-  
-  ParticleSystem.prototype.addParticle = function() {
+}
+
+addParticle(){
     this.particles.push(new Particle(this.origin));
-  };
-  
-  ParticleSystem.prototype.run = function() {
-    for (let i = this.particles.length-1; i >= 0; i--) {
-      let p = this.particles[i];
-      p.run();
-      if (p.isDead()) {
-        this.particles.splice(i, 1);
-      }
+}
+
+run(){    for (let i = this.particles.length-1; i >= 0; i--) {
+    let p = this.particles[i];
+    p.run();
+    if (p.isDead()) {
+      this.particles.splice(i, 1);
     }
-  };
+  }
+
+}
+
+}
