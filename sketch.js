@@ -18,10 +18,8 @@ function draw() {
 
 function mouseClicked() {
   let mPos = createVector(mouseX, mouseY); 
-  let drop = new Raindrop(mPos); // 하나의 물방울 생성
-  systems = []; 
   systems.push(new Rain(mPos)); // 새로운 방출기 생성
-  systems[0].addRaindrop(); // 해당 방출기에서 첫 물방울 추가
+  systems[systems.length - 1].addRaindrop(); // 해당 방출기에서 첫 물방울 추가
 }
 
 
