@@ -4,7 +4,7 @@ class Raindrop{
         this.velocity = createVector(random(-1, 1), random(-1, 0));
         this.position = position.copy();
         this.lifespan = 255;
-        this.w = 2;
+        this.w = 10;
         this.hasSpawned = false;
     }
 
