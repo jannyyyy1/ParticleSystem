@@ -1,34 +1,27 @@
-let system;
-let systems = [];
-
-let g; //gravity
-let wind;
+let systems = []; 
+let g; // gravity
 
 function setup() {
   createCanvas(720, 400);
-  // system = new rain(createVector(width / 2, 50));
-  g = createVector(0,0.05);
-  wind = createVector(0.03,-0.01);
+  g = createVector(0, 0.05); 
 }
 
 function draw() {
-  background(51);
+  background(51); 
 
+  // systems 배열에 있는 모든 방출기 실행
   for (let s of systems) {
-    s.addRaindrop();
-    s.applyGravity(g);
-    s.applyForce(wind);
-    s.run();
+    s.applyGravity(g); 
+    s.run(); 
   }
-
 }
 
 function mouseClicked() {
-  let mPos = createVector(mouseX, mouseY);
-  let drop = new Raindrop(mPos); 
+  let mPos = createVector(mouseX, mouseY); 
+  let drop = new Raindrop(mPos); // 하나의 물방울 생성
   systems = []; 
   systems.push(new Rain(mPos)); // 새로운 방출기 생성
-  systems[0].addRaindrop(); // 해당 방출기에서 처음 물방울 추가
+  systems[0].addRaindrop(); // 해당 방출기에서 첫 물방울 추가
 }
 
 

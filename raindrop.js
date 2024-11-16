@@ -36,8 +36,16 @@ class Raindrop{
               system.addRaindrop(); // 새로 생성된 방출기에서 물방울 추가
             }
           }
-          
+            // 물방울이 좌우 벽에 닿을 때 반사
+            if (this.position.x <= this.w / 2 || this.position.x >= width - this.w / 2) {
+                this.velocity.x *= -0.6; // 벽에 닿으면 반사
+            }
+  
+            // 가속도 초기화 (다음 업데이트를 위한 준비)
+            this.acceleration.set(0, 0);
     }
+  
+    
 
     display(){    
         stroke(200, this.lifespan);
@@ -50,8 +58,4 @@ class Raindrop{
     isDead(){
         return this.lifespan < 0;
     }
-
-
 }
-
-
