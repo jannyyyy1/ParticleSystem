@@ -4,8 +4,8 @@ constructor(position){
     this.raindrops = [];
 }
 
-addraindrop(){
-    this.raindrops.push(new raindrop(this.origin));
+addRaindrop(){
+    this.raindrops.push(new Raindrop(this.origin));
 }
 
 applyGravity(g){
@@ -16,15 +16,15 @@ applyGravity(g){
 }
 
 applyForce(force){
-  for(let p of this.raindrops) {
-    p.applyForce(g);
+  for(let r of this.raindrops) {
+    r.applyForce(g);
   }
 }
 
 run(){    for (let i = this.raindrops.length-1; i >= 0; i--) {
-    let p = this.raindrops[i];
-    p.run();
-    if (p.isDead()) {
+    let r = this.raindrops[i];
+    r.run();
+    if (r.isDead()) {
       this.raindrops.splice(i, 1);
     }
   }
